@@ -1,7 +1,18 @@
 import streamlit as st
 
 
-def create_max_metrics(df_filtrado):
+def create_max_metrics(df):
+    sensores = sorted(df["sensor_id"].unique())
+
+    sensor = st.selectbox(
+        "Selecione o sensor",
+        sensores
+    )
+
+    df_filtrado = df[
+        df["sensor_id"] == sensor
+        ]
+
     col1, col2, col3 = st.columns(3)
 
     with col1:

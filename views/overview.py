@@ -1,8 +1,6 @@
 import streamlit as st
-import pandas as pd
-import plotly.express as px
 
-from dados_iot import *
+from dados_iot import temperatura_media, rpm_medio, corrente_media, carga_media, sensores_ativos, formatar_dados
 
 
 def render_overview():
@@ -61,7 +59,7 @@ def render_overview():
     else:
         st.error(status)
 
-    df = pd.DataFrame(dados)
+    df = formatar_dados()
 
     st.subheader("Dados Recebidos")
     st.dataframe(df)

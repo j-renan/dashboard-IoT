@@ -1,3 +1,10 @@
+import pandas as pd
+
+TEMP_MAX = 100
+RPM_MAX = 3000
+CORRENTE_MAX = 30
+CARGA_MAX = 100
+
 dados = [
     {
         "timestamp": "14:05",
@@ -46,3 +53,37 @@ carga_media = sum(
 ) / len(dados)
 
 sensores_ativos = len(dados)
+
+def formatar_dados():
+    df = pd.DataFrame(dados)
+    df["temp_norm"] = df["temperatura_motor"] / TEMP_MAX
+    df["rpm_norm"] = df["rpm"] / RPM_MAX
+    df["corrente_norm"] = df["corrente_a"] / CORRENTE_MAX
+    df["carga_norm"] = df["carga_pct"] / CARGA_MAX
+    df["score"] = (
+            df["temp_norm"] * 0.35 +
+            df["rpm_norm"] * 0.25 +
+            df["corrente_norm"] * 0.25 +
+            df["carga_norm"] * 0.15
+    )
+
+    df["timestamp"] = pd.to_datetime(df["timestamp"])
+
+    df["delta_min"] = (
+            df["timestamp"]
+            .diff()
+            .dt.total_seconds()
+            .fillna(0)
+            / 60
+    )
+    df["desgaste_periodo"] = (
+            df["score"]
+            * df["delta_min"]
+    )
+    df["indice_desgaste"] = (
+        df["desgaste_periodo"]
+        .cumsum()
+    )
+    return df
+
+# formatar_dados(dados)
