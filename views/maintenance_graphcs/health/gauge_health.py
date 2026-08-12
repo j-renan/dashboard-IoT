@@ -38,5 +38,5 @@ def create_gauge_health(df_filtrado):
     with st.container(border=True):
         st.plotly_chart(
             fig,
-            use_container_width=True
+            width='stretch'
         )

@@ -29,6 +29,54 @@ dados = [
         "rpm": 2100,
         "corrente_a": 19.3,
         "carga_pct": 60
+    },
+{
+        "timestamp": "15:05",
+        "sensor_id": 2,
+        "temperatura_motor": 8.5,
+        "rpm": 850,
+        "corrente_a": 9.2,
+        "carga_pct": 4
+    },
+    {
+        "timestamp": "15:10",
+        "sensor_id": 2,
+        "temperatura_motor": 11.4,
+        "rpm": 950,
+        "corrente_a": 11.9,
+        "carga_pct": 5
+    },
+    {
+        "timestamp": "15:15",
+        "sensor_id": 2,
+        "temperatura_motor": 87.2,
+        "rpm": 8000,
+        "corrente_a": 50.3,
+        "carga_pct": 90
+    },
+{
+        "timestamp": "14:25",
+        "sensor_id": 3,
+        "temperatura_motor": 5,
+        "rpm": 1726,
+        "corrente_a": 18.2,
+        "carga_pct": 45
+    },
+    {
+        "timestamp": "14:30",
+        "sensor_id": 3,
+        "temperatura_motor": 1.4,
+        "rpm": 50,
+        "corrente_a": 0.9,
+        "carga_pct": 5
+    },
+    {
+        "timestamp": "14:35",
+        "sensor_id": 3,
+        "temperatura_motor": 45.2,
+        "rpm": 3654,
+        "corrente_a": 99.3,
+        "carga_pct": 69
     }
 ]
 

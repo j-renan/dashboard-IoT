@@ -8,10 +8,10 @@ from views.maintenance_graphcs.health.gauge_health import create_gauge_health
 from views.maintenance_graphcs.wear.wear_x_time import create_graph_wear_x_time
 
 
-def render_maintenance():
+def render_maintenance(df):
     st.header("🔧 Manutenção")
 
-    df = formatar_dados()
+    # df = formatar_dados()
     key = 'maintenance'
     df_filtrado = filter_dataframe(df, key)
 

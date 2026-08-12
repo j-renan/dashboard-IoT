@@ -1,5 +1,6 @@
 import streamlit as st
 
+from dados_iot import formatar_dados
 from views.alerts import render_alerts
 from views.maintenance import render_maintenance
 from views.overview import render_overview
@@ -26,14 +27,16 @@ pagina = st.segmented_control(
     default="📊 Visão Geral"
 )
 
+df = formatar_dados()
+
 if pagina == "📊 Visão Geral":
     render_overview()
 
 elif pagina == "📈 Histórico":
-    render_history()
+    render_history(df)
 
 elif pagina == "🚨 Alertas":
-    render_alerts()
+    render_alerts(df)
 
 elif pagina == "🔧 Manutenção":
-    render_maintenance()
+    render_maintenance(df)

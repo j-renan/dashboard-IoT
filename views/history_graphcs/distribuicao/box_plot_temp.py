@@ -11,5 +11,5 @@ def create_box_plot_temp(df_filtrado):
     with st.container(border=True):
         st.plotly_chart(
             fig,
-            use_container_width=True
+            width='stretch'
         )

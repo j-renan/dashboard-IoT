@@ -17,5 +17,5 @@ def create_scatter_current_x_temp(df_filtrado):
     with st.container(border=True):
         st.plotly_chart(
             fig,
-            use_container_width=True
+            width='stretch'
         )
